@@ -21,14 +21,14 @@ import { Subjects } from './schema/subjects.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
+TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'thzz882efnak0xod.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
       port: 3306,
-      username: 'root',
-      password: 'convergence',
-      database: 'pet-appointment',
-      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+      username: 'yi9ogh51xojpl4sd',
+      password: 'y0wozn8zl2powrgq',
+      database: 'x6hl9h10vnn09ywx',
+      entities: [join(__dirname, '*', '.entity.{ts,js}')],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([UserEntity, Pets, Price, AnimalsType, Weight, Subjects]),
