@@ -18,17 +18,21 @@ import { AppoinmentService } from './route/appoinment/appoinment.service';
 import { AppoinmentModule } from './route/appoinment/appoinment.module';
 import { AppoinmentController } from './route/appoinment/appoinment.controller';
 import { Subjects } from './schema/subjects.entity';
+import * as dotenv from 'dotenv';
+const envFile = process.argv[2] || process.env.NODE_ENV || '.env';
+
+dotenv.config({ path: envFile });
 
 @Module({
   imports: [
-TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'thzz882efnak0xod.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+      host: process.env.MYSQL_HOST ||'localhost',
       port: 3306,
-      username: 'yi9ogh51xojpl4sd',
-      password: 'y0wozn8zl2powrgq',
-      database: 'x6hl9h10vnn09ywx',
-      entities: [join(__dirname, '*', '.entity.{ts,js}')],
+      username: process.env.MYSQL_USER || 'root',
+      password: process.env.MYSQL_PASSWORD || 'convergence',
+      database: process.env.MYSQL_DATABASE || 'pet-appointment',
+      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([UserEntity, Pets, Price, AnimalsType, Weight, Subjects]),
