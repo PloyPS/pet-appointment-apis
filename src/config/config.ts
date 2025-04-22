@@ -21,7 +21,7 @@ export const config = {
         expiresIn: process.env.JWT_EXPIRES_IN || '12h',
     },
     cor: {
-        originAllows: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+        originAllows: (process.env.CORS_ORIGIN || 'http://localhost:4200').split(','),
     },
     log: {
         filename: process.env.LOG_FILENAME || 'logs/app.log',
